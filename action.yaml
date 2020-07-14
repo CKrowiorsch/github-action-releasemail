@@ -1,4 +1,4 @@
-name: 'Send Release Makil'
+name: 'SendReleaseMail-CKrowiorsch'
 description: 'Send a github-releasemail with sendgrid + template'
 inputs:
   SENDGRID_APIKEY:
@@ -7,15 +7,15 @@ inputs:
     default: ''
   SENDGRID_TEMPLATE_ID:
     description: 'sendgrid template id '
-    required: true,
+    required: true
     default: ''
   SENDER_MAIL:
-    description: 'sender for the mail',
+    description: 'sender for the mail'
     required: true
     default: ''
   RECEIPIENTS: 
     description: 'receipients comma-separated'
-    required: 'true'
+    required: true
     default: ''
 outputs:
   time: # id of output
