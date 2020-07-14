@@ -18,6 +18,8 @@ namespace Action.Relasemail
             var receipientsVariable = Environment.GetEnvironmentVariable("RECEIPIENTS");
             var pathEventFile = Environment.GetEnvironmentVariable("GITHUB_EVENT_PATH");
 
+            Console.WriteLine("Starting EMail");
+
             var client = new SendGridClient(sendgridApiKey);
 
             if (string.IsNullOrWhiteSpace(receipientsVariable))
