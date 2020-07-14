@@ -1,4 +1,3 @@
-# action.yml
 name: 'Send Release Makil'
 description: 'Send a github-releasemail with sendgrid + template'
 inputs:
