@@ -1,0 +1,28 @@
+# action.yml
+name: 'Send Release Makil'
+description: 'Send a github-releasemail with sendgrid + template'
+inputs:
+  SENDGRID_APIKEY:
+    description: 'apikey for sendgrif'
+    required: true
+    default: ''
+  SENDGRID_TEMPLATE_ID:
+    description: 'sendgrid template id '
+    required: true,
+    default: ''
+  SENDER_MAIL:
+    description: 'sender for the mail',
+    required: true
+    default: ''
+  RECEIPIENTS: 
+    description: 'receipients comma-separated'
+    required: 'true'
+    default: ''
+outputs:
+  time: # id of output
+    description: 'The time we greeted you'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.who-to-greet }}
