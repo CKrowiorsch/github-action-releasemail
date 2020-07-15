@@ -6,9 +6,9 @@ using Newtonsoft.Json;
 using SendGrid;
 using SendGrid.Helpers.Mail;
 
-namespace Action.Relasemail
+namespace Krowiorsch.Github
 {
-    class Program
+    internal class Program
     {
         static async Task Main(string[] args)
         {
@@ -26,10 +26,6 @@ namespace Action.Relasemail
                 Environment.Exit(1);
 
             var receipients = receipientsVariable.Split(new[] { ',', ';' }, StringSplitOptions.RemoveEmptyEntries).ToArray();
-
-            Console.WriteLine($"ApiKey:{sendgridApiKey}");
-            Console.WriteLine($"sender:{sender}");
-
 
             var actionPayload = JsonConvert.DeserializeObject<GithubModels.ActionPayload>(await File.ReadAllTextAsync(pathEventFile));
 
@@ -57,15 +53,11 @@ namespace Action.Relasemail
                 }
             };
 
-            Console.WriteLine($"Body:{body}");
-
-
             message.SetTemplateData(dynamicTemplateData);
 
             foreach (var s in receipients)
             {
                 message.AddTo(new EmailAddress(s));
-                Console.WriteLine($"rec:{s}");
             }
 
             message.SetFrom(new EmailAddress(sender));

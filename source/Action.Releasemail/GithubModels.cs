@@ -1,7 +1,7 @@
 ﻿using System;
 using Newtonsoft.Json;
 
-namespace Action.Relasemail
+namespace Krowiorsch.Github
 {
     public class GithubModels
     {
