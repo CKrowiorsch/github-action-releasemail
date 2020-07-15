@@ -10,15 +10,17 @@ COPY . .
 RUN dotnet build "source/Action.Releasemail/Action.Releasemail.csproj" -c Release -o /app -nologo -clp:nosummary -v:m 
 
 FROM build AS publish
-RUN dotnet publish "source/Action.Releasemail/Action.Releasemail.csproj" -c Release -o /github/workspace
+RUN dotnet publish "source/Action.Releasemail/Action.Releasemail.csproj" -c Release -o /github/workspace/app
 
 FROM base AS final
 
-EXPOSE 16110
-ENV TZ Europe/Amsterdam
+#EXPOSE 16110
+#ENV TZ Europe/Amsterdam
 
-WORKDIR /github/workspace 
+#WORKDIR /github/workspace 
 
-COPY --from=publish /github/workspace  .
+COPY --from=publish /github/workspace/app /
 
-ENTRYPOINT ["dotnet", "actionreleasemail.dll"]
+COPY entrypoint.sh /entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]
