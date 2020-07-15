@@ -34,7 +34,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Notify about a new release
-      uses: ckrowiorsch/action-release-mail@v0.1-beta11
+      uses: ckrowiorsch/action-release-mail@v1.0.0
       env:
         SENDGRID_APIKEY: ${{ secrets.SENDGRID_APIKEY }}
         SENDGRID_TEMPLATE_ID: ${{ secrets.SENDGRID_APIKEY }}
