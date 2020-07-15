@@ -39,5 +39,5 @@ jobs:
         SENDGRID_APIKEY: ${{ secrets.SENDGRID_APIKEY }}
         SENDGRID_TEMPLATE_ID: ${{ secrets.SENDGRID_APIKEY }}
         SENDER_MAIL: <Sender>
-        RECEIPIENTS: <Empfänger>
+        RECEIPIENTS: <receipient-commaseparated>
 ```
