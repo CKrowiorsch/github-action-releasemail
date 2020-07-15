@@ -22,7 +22,7 @@ outputs:
     description: 'The time we greeted you'
 runs:
   using: 'docker'
-  image: 'dockerfile'
+  image: 'Dockerfile'
 branding:
   icon: 'at-sign'
   color: 'black'
