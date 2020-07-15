@@ -27,6 +27,10 @@ namespace Action.Relasemail
 
             var receipients = receipientsVariable.Split(new[] { ',', ';' }, StringSplitOptions.RemoveEmptyEntries).ToArray();
 
+            Console.WriteLine($"ApiKey:{sendgridApiKey}");
+            Console.WriteLine($"sender:{sender}");
+
+
             var actionPayload = JsonConvert.DeserializeObject<GithubModels.ActionPayload>(await File.ReadAllTextAsync(pathEventFile));
 
             var message = new SendGridMessage();
@@ -53,18 +57,22 @@ namespace Action.Relasemail
                 }
             };
 
+            Console.WriteLine($"Body:{body}");
+
+
             message.SetTemplateData(dynamicTemplateData);
 
             foreach (var s in receipients)
             {
                 message.AddTo(new EmailAddress(s));
+                Console.WriteLine($"rec:{s}");
             }
 
             message.SetFrom(new EmailAddress(sender));
 
             await client.SendEmailAsync(message);
 
-            Console.WriteLine("Has been sent");
+            Console.WriteLine("Has been sent v1.0");
         }
     }
 }
