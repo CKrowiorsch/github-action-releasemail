@@ -22,7 +22,7 @@ outputs:
     description: 'The time we greeted you'
 runs:
   using: 'docker'
-  image: 'Dockerfile'
+  image: 'docker://ckrowiorsch/github-action-release:latest'
 branding:
   icon: 'at-sign'
   color: 'black'
