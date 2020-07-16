@@ -37,7 +37,7 @@ jobs:
       uses: ckrowiorsch/action-release-mail@v1.0.0
       env:
         SENDGRID_APIKEY: ${{ secrets.SENDGRID_APIKEY }}
-        SENDGRID_TEMPLATE_ID: ${{ secrets.SENDGRID_APIKEY }}
+        SENDGRID_TEMPLATE_ID: ${{ secrets.SENDGRID_TEMPLATEID }}
         SENDER_MAIL: <Sender>
         RECEIPIENTS: <receipient-commaseparated>
 ```
